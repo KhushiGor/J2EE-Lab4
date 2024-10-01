@@ -1,0 +1,51 @@
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Servlet implementation class RegisterServlet
+ */
+public class RegisterServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public RegisterServlet() {
+        super();
+    }
+
+    // Handle POST request for user registration
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Retrieve user details from the request
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+
+        // Create a new User object and populate it
+        User newUser = new User();
+        newUser.setUsername(username);
+        newUser.setPassword(password);  // You should hash the password for security
+        newUser.setEmail(email);
+
+        // Use UserRepository to register the new user
+        UserRepository userRepository = new UserRepository();
+        try {
+            // Attempt to register the user
+            userRepository.registerUser(newUser);
+            
+            // Registration successful, redirect to login page
+            response.sendRedirect("login.html?registered=true");
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+            // Registration failed, redirect back to the registration page with error
+            response.sendRedirect("register.html?error=true");
+        }
+    }
+
+    // Optionally handle GET request
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().append("Served at: ").append(request.getContextPath());
+    }
+}

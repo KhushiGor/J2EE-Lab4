@@ -1,0 +1,44 @@
+package com;
+import java.io.IOException;
+import java.sql.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class LoginServlet
+ */
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        // JDBC connection setup
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/api_portal", "root", "Admin@1234")) {
+            String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, username);
+                stmt.setString(2, password); // Checking the plain password
+
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    // Successful login, create a session
+                    HttpSession session = request.getSession();
+                    session.setAttribute("username", username);
+                    response.sendRedirect("index.html"); // Redirect to a welcome page
+                } else {
+                    response.getWriter().println("Invalid credentials!");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.getWriter().println("Error: " + e.getMessage());
+        }
+    }
+
+}

@@ -1,0 +1,5 @@
+package com.mysql.cj.jdbc;
+
+public record Driver() implements java.sql.Driver {
+
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Customer</title>
+</head>
+<body>
+    <h2>Add a New Customer</h2>
+    <form action="/AddCustomerServlet" method="post">
+        <label for="id">ID:</label>
+        <input type="text" name="id" id="id" required><br>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" id="phone" required><br>
+        <input type="submit" value="Add Customer">
+    </form>
+    <a href="index.html">Back to Home</a>
+</body>
+</html>

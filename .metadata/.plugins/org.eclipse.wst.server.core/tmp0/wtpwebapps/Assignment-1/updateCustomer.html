@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Customer</title>
+    <style>
+        form p {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        // Function to get query parameter value by name
+        function getQueryParameter(name) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Populate the form fields with the query parameters
+        window.onload = function() {
+            document.getElementById("id").value = getQueryParameter("id");
+            document.getElementById("name").value = getQueryParameter("name");
+            document.getElementById("email").value = getQueryParameter("email");
+            document.getElementById("phone").value = getQueryParameter("phone");
+        };
+    </script>
+</head>
+<body>
+    <h1>Update Customer Information</h1>
+
+    <form action="UpdateCustomerServlett" method="post">
+        <input type="hidden" name="id" id="id">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+        </p>
+        <p>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" required>
+        </p>
+        <p>
+            <button type="submit">Update Customer</button>
+        </p>
+    </form>
+</body>
+</html>

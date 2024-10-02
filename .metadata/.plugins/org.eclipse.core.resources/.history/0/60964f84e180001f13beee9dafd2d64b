@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+=======
+<<<<<<< HEAD
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+>>>>>>> e98e14fa899571bd8eef4a70ffb8ec31e5332e82
+  <display-name>Assignment-1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+<<<<<<< HEAD
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>Servlet to view customer details</description>
+    <display-name>ViewCustomerServlet</display-name>
+    <servlet-name>ViewCustomerServlet</servlet-name>
+    <servlet-class>ViewCustomerServlet</servlet-class>
+=======
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  <servlet-name>LoginServlet</servlet-name>
+  <servlet-class>com.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>LoginServlet</servlet-name>
+  <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+   
+   <servlet-name>LogoutServlet</servlet-name>
+  <servlet-class>com.LogoutServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>LogoutServlet</servlet-name>
+  <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  
+<servlet>
+   <servlet-name>RegisterServlet</servlet-name>
+  <servlet-class>com.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>RegisterServlet</servlet-name>
+  <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+    
+    <servlet>
+    <display-name>ViewCustomerServlet</display-name>
+    <servlet-name>ViewCustomerServlet</servlet-name>
+    <servlet-class>com.ViewCustomerServlet</servlet-class>
+>>>>>>> e98e14fa899571bd8eef4a70ffb8ec31e5332e82
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCustomerServlet</servlet-name>
+    <url-pattern>/ViewCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+<<<<<<< HEAD
+    <description>Servlet to update customer information</description>
+=======
+    
+>>>>>>> e98e14fa899571bd8eef4a70ffb8ec31e5332e82
+    <display-name>UpdateCustomerServlet</display-name>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <servlet-class>UpdateCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <url-pattern>/UpdateCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+<<<<<<< HEAD
+    <description>Servlet to delete customer records</description>
+=======
+    
+>>>>>>> e98e14fa899571bd8eef4a70ffb8ec31e5332e82
+    <display-name>DeleteCustomerServlet</display-name>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <servlet-class>DeleteCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <url-pattern>/DeleteCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+<<<<<<< HEAD
+    <description>Servlet to add new customers</description>
+=======
+    <description></description>
+>>>>>>> e98e14fa899571bd8eef4a70ffb8ec31e5332e82
+    <display-name>AddCustomerServlet</display-name>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <servlet-class>AddCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <url-pattern>/AddCustomerServlet</url-pattern>
+  </servlet-mapping>
+<<<<<<< HEAD
+  <servlet>
+    <description>Servlet for general customer operations</description>
+    <display-name>CustomerServlet</display-name>
+    <servlet-name>CustomerServlet</servlet-name>
+    <servlet-class>CustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerServlet</servlet-name>
+    <url-pattern>/CustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCustomerServlett</display-name>
+    <servlet-name>UpdateCustomerServlett</servlet-name>
+    <servlet-class>UpdateCustomerServlett</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerServlett</servlet-name>
+    <url-pattern>/UpdateCustomerServlett</url-pattern>
+  </servlet-mapping>
+</web-app>
+=======
+</web-app>
+=======
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6.0.xsd"
+         id="WebApp_ID" version="6.0">
+
+    <display-name>Assignment-1</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet for Viewing Customer Details -->
+    <servlet>
+        <description>Servlet to view customer details</description>
+        <display-name>ViewCustomerServlet</display-name>
+        <servlet-name>ViewCustomerServlet</servlet-name>
+        <servlet-class>ViewCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewCustomerServlet</servlet-name>
+        <url-pattern>/ViewCustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for Updating Customer Information -->
+    <servlet>
+        <description>Servlet to update customer information</description>
+        <display-name>UpdateCustomerServlet</display-name>
+        <servlet-name>UpdateCustomerServlet</servlet-name>
+        <servlet-class>UpdateCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCustomerServlet</servlet-name>
+        <url-pattern>/UpdateCustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for Deleting Customer Records -->
+    <servlet>
+        <description>Servlet to delete customer records</description>
+        <display-name>DeleteCustomerServlet</display-name>
+        <servlet-name>DeleteCustomerServlet</servlet-name>
+        <servlet-class>DeleteCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCustomerServlet</servlet-name>
+        <url-pattern>/DeleteCustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for Adding New Customers -->
+    <servlet>
+        <description>Servlet to add new customers</description>
+        <display-name>AddCustomerServlet</display-name>
+        <servlet-name>AddCustomerServlet</servlet-name>
+        <servlet-class>AddCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCustomerServlet</servlet-name>
+        <url-pattern>/AddCustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet for General Customer Operations -->
+    <servlet>
+        <description>Servlet for general customer operations</description>
+        <display-name>CustomerServlet</display-name>
+        <servlet-name>CustomerServlet</servlet-name>
+        <servlet-class>CustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerServlet</servlet-name>
+        <url-pattern>/CustomerServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
+>>>>>>> e2532ced0b36dc69e6de029d0e2ececd2f7e5c3c
+>>>>>>> e98e14fa899571bd8eef4a70ffb8ec31e5332e82

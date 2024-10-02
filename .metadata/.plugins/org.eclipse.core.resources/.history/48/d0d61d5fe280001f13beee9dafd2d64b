@@ -1,0 +1,108 @@
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+// Include your CustomerRepository and SqlCustomerRepository imports here
+
+
+public class SqlCustomerRepository implements CustomerRepository {
+
+    private static final String URL = "jdbc:mysql://localhost:3306/sys"; // Database URL
+    private static final String USER = "root"; // Database username
+    private static final String PASSWORD = "Adx@7893"; // Database password
+    
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+
+    @Override
+    public void addCustomer(Customer customer) {
+        String sql = "INSERT INTO customers (id, name, email, phone) VALUES (?, ?, ?, ?)";
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, customer.getId());
+            statement.setString(2, customer.getName());
+            statement.setString(3, customer.getEmail());
+            statement.setString(4, customer.getPhone());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Customer getCustomerById(String id) {
+        String sql = "SELECT * FROM customers WHERE id = ?";
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return new Customer(
+                    resultSet.getString("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("phone")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null; // Return null if customer is not found
+    }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        List<Customer> customers = new ArrayList<>();
+        String sql = "SELECT * FROM customers";
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                Customer customer = new Customer(
+                    resultSet.getString("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("phone")
+                );
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        String sql = "UPDATE customers SET name = ?, email = ?, phone = ? WHERE id = ?";
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, customer.getName());
+            statement.setString(2, customer.getEmail());
+            statement.setString(3, customer.getPhone());
+            statement.setString(4, customer.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean deleteCustomer(String id) {
+        String sql = "DELETE FROM customers WHERE id = ?";
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, id);
+            int rowsAffected = statement.executeUpdate();
+            return rowsAffected > 0; // Return true if a customer was deleted
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle exceptions as needed
+            return false; // Return false if there was an error
+        }
+    }
+}

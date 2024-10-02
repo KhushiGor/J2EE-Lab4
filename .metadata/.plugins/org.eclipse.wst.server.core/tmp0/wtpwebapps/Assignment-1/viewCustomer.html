@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Customers</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        // Function to fetch and render customer data
+        async function fetchCustomers() {
+            try {
+                const response = await fetch('CustomerServlet'); // URL to your servlet
+                const customers = await response.json(); // Parse JSON response
+                const tbody = document.getElementById('customer-list');
+
+                // Check if customers is an array and has data
+                if (customers.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No customers found.</td></tr>';
+                    return;
+                }
+
+                // Loop through the customers and create table rows
+                customers.forEach(customer => {
+                    const row = `
+                        <tr>
+                            <td>${customer.id}</td>
+                            <td>${customer.name}</td>
+                            <td>${customer.email}</td>
+                            <td>${customer.phone}</td>
+                            <td>
+                                <a href="updateCustomer.html?id=${customer.id}&name=${customer.name}&email=${customer.email}&phone=${customer.phone}">Update</a>
+                                <a href="#" onclick="deleteCustomer('${customer.id}'); return false;">Delete</a>
+                            </td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching customers:', error);
+                document.getElementById('customer-list').innerHTML = '<tr><td colspan="5">Error loading customers.</td></tr>';
+            }
+        }
+
+        // Call the fetchCustomers function when the page loads
+        window.onload = fetchCustomers;
+    </script>
+</head>
+<body>
+    <h1>All Customers</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="customer-list">
+            <!-- The customer rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+</body>
+<script>
+function deleteCustomer(customerId) {
+    if (confirm('Are you sure you want to delete this customer?')) {
+        fetch('DeleteCustomerServlet', {
+            method: 'POST', // You can use 'DELETE' if your servlet is designed for that
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: customerId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Customer deleted successfully');
+                location.reload(); // Refresh the page to update the list of customers
+            } else {
+                alert('Error deleting customer');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error deleting customer');
+        });
+    }
+}
+</script>
+</html>

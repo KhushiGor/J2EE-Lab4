@@ -1,0 +1,33 @@
+package module;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Servlet implementation class DeleteCustomerServlet
+ */
+public class DeleteCustomerServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private CustomerRepository repository = new SqlCustomerRepository();
+
+    // Handles POST requests for deleting customers
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String id = request.getParameter("id");
+
+        // Check if the ID is not null and delete the customer
+        if (id != null && !id.isEmpty()) {
+            repository.deleteCustomer(id);
+        }
+
+        // Redirect to the success page or customer list
+        response.sendRedirect("success.html"); // Redirect to success page
+        // Alternatively, you could redirect to the customer list page
+        // response.sendRedirect("customers.html");
+    }
+}

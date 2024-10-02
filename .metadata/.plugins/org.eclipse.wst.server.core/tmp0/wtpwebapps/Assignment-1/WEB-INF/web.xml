@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>Assignment-1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>default.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>Servlet to view customer details</description>
+    <display-name>ViewCustomerServlet</display-name>
+    <servlet-name>ViewCustomerServlet</servlet-name>
+    <servlet-class>ViewCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCustomerServlet</servlet-name>
+    <url-pattern>/ViewCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet to update customer information</description>
+    <display-name>UpdateCustomerServlet</display-name>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <servlet-class>UpdateCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <url-pattern>/UpdateCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet to delete customer records</description>
+    <display-name>DeleteCustomerServlet</display-name>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <servlet-class>DeleteCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <url-pattern>/DeleteCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet to add new customers</description>
+    <display-name>AddCustomerServlet</display-name>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <servlet-class>AddCustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <url-pattern>/AddCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet for general customer operations</description>
+    <display-name>CustomerServlet</display-name>
+    <servlet-name>CustomerServlet</servlet-name>
+    <servlet-class>CustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerServlet</servlet-name>
+    <url-pattern>/CustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCustomerServlett</display-name>
+    <servlet-name>UpdateCustomerServlett</servlet-name>
+    <servlet-class>UpdateCustomerServlett</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerServlett</servlet-name>
+    <url-pattern>/UpdateCustomerServlett</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCustomerServelt</display-name>
+    <servlet-name>DeleteCustomerServelt</servlet-name>
+    <servlet-class>DeleteCustomerServelt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCustomerServelt</servlet-name>
+    <url-pattern>/DeleteCustomerServelt</url-pattern>
+  </servlet-mapping>
+</web-app>

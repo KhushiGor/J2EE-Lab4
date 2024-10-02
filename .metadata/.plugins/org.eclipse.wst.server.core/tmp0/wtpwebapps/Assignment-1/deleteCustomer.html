@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Customer</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Customer</h2>
+        <form action="DeleteCustomerServlet" method="post">
+            <label for="id">Customer ID:</label>
+            <input type="text" id="id" name="id" required>
+            <button type="submit">Delete</button>
+        </form>
+        <div id="success-message" style="display:none; color: green;">Customer deleted successfully!</div>
+        <div id="error-message" style="display:none; color: red;">Failed to delete customer!</div>
+    </div>
+
+    <script>
+        // Optionally show success/error messages
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('success-message').style.display = 'block';
+        } else if (urlParams.get('success') === 'false') {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

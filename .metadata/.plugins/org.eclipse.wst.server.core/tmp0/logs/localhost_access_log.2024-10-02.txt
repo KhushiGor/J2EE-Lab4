@@ -8,3 +8,15 @@
 0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:05:05 -0400] "GET /favicon.ico HTTP/1.1" 404 763
 127.0.0.1 - - [02/Oct/2024:14:06:22 -0400] "GET / HTTP/1.1" 404 752
 0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:06:23 -0400] "GET /Assignment-1/index.html HTTP/1.1" 404 779
+127.0.0.1 - - [02/Oct/2024:14:08:39 -0400] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:40 -0400] "GET /Assignment-1/index.html HTTP/1.1" 200 472
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:40 -0400] "GET /favicon.ico HTTP/1.1" 404 763
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:42 -0400] "GET /Assignment-1/addCustomer.html HTTP/1.1" 200 831
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:52 -0400] "POST /Assignment-1/AddCustomerServlet HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:52 -0400] "GET /Assignment-1/success.html?message=Customer%20added%20successfully! HTTP/1.1" 200 1248
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:53 -0400] "GET /Assignment-1/viewCustomer.html HTTP/1.1" 200 3696
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:08:53 -0400] "GET /Assignment-1/CustomerServlet HTTP/1.1" 200 4
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:18:17 -0400] "POST /Assignment-1/AddCustomerServlet HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:18:17 -0400] "GET /Assignment-1/success.html?message=Customer%20added%20successfully! HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:18:18 -0400] "GET /Assignment-1/viewCustomer.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [02/Oct/2024:14:18:19 -0400] "GET /Assignment-1/CustomerServlet HTTP/1.1" 200 4
